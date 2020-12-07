@@ -186,4 +186,4 @@ java -classpath ".;lib\*" gameplat.GamePlat
 ```
 6. On Linux-based terminal, run the following command line
 ```
-java -classpath ".:lib\*" gameplat.GamePlat
+java -classpath ".:lib/*" gameplat.GamePlat
