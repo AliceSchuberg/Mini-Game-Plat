@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_menu_background"
+    tools:context=".MainMenu">
+
+    <Button
+        android:id="@+id/btnMenuCreate"
+        android:layout_width="210dp"
+        android:layout_height="49dp"
+        android:background="@drawable/main_menu_btn_create"
+        android:backgroundTint="#66957349"
+        android:onClick="MoveToCreateRoom"
+        android:text="Create Room"
+        android:textColor="#C3C9ED"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnMenuFind"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnMenuFind"
+        android:layout_width="210dp"
+        android:layout_height="49dp"
+        android:background="@drawable/main_menu_btn_public"
+        android:backgroundTint="#8894B3C1"
+        android:onClick="MoveToFindRoom"
+        android:text="Find Room"
+        android:textColor="#C3C9ED"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnMenuSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMenuCreate" />
+
+    <Button
+        android:id="@+id/btnMenuSearch"
+        android:layout_width="210dp"
+        android:layout_height="49dp"
+        android:background="@drawable/main_menu_btn_search"
+        android:backgroundTint="#8DAC8F8F"
+        android:onClick="MoveToSearchRoom"
+        android:text="Search Room"
+        android:textColor="#C3C9ED"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMenuFind" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

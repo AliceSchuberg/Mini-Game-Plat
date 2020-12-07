@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#885EA5"
+    tools:context=".DiceRoller">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutDicePlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/txtDiceResult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutDice1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="15dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imgDicePlayer1"
+                android:layout_width="82dp"
+                android:layout_height="84dp"
+                app:srcCompat="@drawable/question" />
+
+            <TextView
+                android:id="@+id/txtDicePlayer1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="player1"
+                android:textColor="#EFE6E6"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutDice2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imgDicePlayer2"
+                android:layout_width="82dp"
+                android:layout_height="84dp"
+                app:srcCompat="@drawable/question" />
+
+            <TextView
+                android:id="@+id/txtDicePlayer2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="player2"
+                android:textColor="#EFE6E6"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutDice3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="0dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imgDicePlayer3"
+                android:layout_width="82dp"
+                android:layout_height="84dp"
+                app:srcCompat="@drawable/question" />
+
+            <TextView
+                android:id="@+id/txtDicePlayer3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="player3"
+                android:textColor="#EFE6E6"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutDiceBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutDice">
+
+        <Button
+            android:id="@+id/btnDiceExit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="btnDiceExitOnClick"
+            android:text="Main Menu" />
+
+        <Button
+            android:id="@+id/btnDiceRoll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="btnDiceRollOnClick"
+            android:text="Roll" />
+
+        <Button
+            android:id="@+id/btnDiceRePlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="btnDiceReplayOnClick"
+            android:text="Replay" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutDice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutDiceBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDiceResult">
+
+        <ImageView
+            android:id="@+id/imgDicePlayer"
+            android:layout_width="82dp"
+            android:layout_height="84dp"
+            app:srcCompat="@drawable/question" />
+
+        <TextView
+            android:id="@+id/txtDicePlayer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="player"
+            android:textColor="#EFE6E6"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtDiceResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutDice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutDicePlayer"
+        tools:text="Result" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
