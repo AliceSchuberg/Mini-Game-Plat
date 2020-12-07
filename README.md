@@ -1,11 +1,36 @@
 # Mini-Game-Plat
-CNIT 355 Project: A practice of Internet Communication between Android Apps and Server.
+CNIT 355 Project: A game platform of mini / simple games with a defined server and the correspondent Android clients for players to operate with.
+
+## Motivation
+The project was designed in a way to practice our programming skills on Android in terms of Android communication with a running server. The Android App itself was neither attempting to be commercial nor to be attractive to the Android market. 
 
 ## WARNING
 
 Unfortunately, our team has yet not been able to find a proper public server (such as AWS) to run our server. 
 
 Due to this reason, this project is currently only LAN enabled, which means you have to follow the steps below and manually configure the ip address and port number to fit in your network environment.
+
+## Design & Analysis
+In order to manage the following potential issues with our projects, we designed our app and server separately to suit the needs.
+```
+1. How to manage multiple players as well as multiple gaming session at the same time?
+2. How to manage a consistent and stable Socket connection for Android App?
+3. How to communicate between server and Android App except using only String or Integer?
+4. How to communicate properly among Service and Activities?
+```
+### Server
+
+#### Multi-Threading: 
+We designed our server to maintain two global HashMaps to keep records of players and game rooms. And each of them will a single instance of Thread. This means once you have 5 players signed in to the server and 2 game rooms have been created, there will be 7 different separate Threads to handle all communications and processes.
+
+#### Communication Packages: 
+In order to communicate with the Android Apps, and since different operations (sign-in or create-a-room) will proceed with different data and information, we self-defined our own Message classes that will carry with the appropriate data for each purpose. For this, see `operations` package.
+
+#### Games Packages: 
+And for the purpose of preventing cheating, we also self-defined our own gaming data classes that will carry the data to the server, while the actual game classes which contains the gaming logics will be hidden from the players. For this, see `games` package. 
+
+### Android 
+
 
 ## Prerequisites
 
@@ -15,7 +40,7 @@ Due to this reason, this project is currently only LAN enabled, which means you 
 
 2. Android Studio 4.0.1 or newer
 
-## Compiling & Running
+## How to use?
 
 ### Run the Server
 
@@ -59,7 +84,7 @@ Password: player         Password: player1
 ```
 
 
-## Program Behavior
+## Program Behavior Description
 
 ### Server part
 
@@ -119,7 +144,7 @@ Password: player         Password: player1
 
 3. The server then flushes out the current result of all players (could be null since some may not have requested) to each player.
 
-4. The server will calculate and obtain winners-list whose have the highest scores, and flushes out the results again.
+4. Once all players have their numbers, the server will then calculate and obtain winners-list whose have the highest scores, and flushes out the results again.
 
 5. Once the game is over, the app will show the results and let the player either `re-play` again or `return to main menu`.
 
