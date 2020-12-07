@@ -1,5 +1,5 @@
 # Mini-Game-Plat
-CNIT 355 Project: A game platform of mini / simple games with a defined server and the correspondent Android clients for players to operate with. For web view: https://github.com/AliceSchuberg/Mini-Game-Plat/blob/main/README.md
+CNIT 355 Project: A game platform of mini / simple games with a defined server and the correspondent Android clients for players to operate with. For web view of this README.md: https://github.com/AliceSchuberg/Mini-Game-Plat/blob/main/README.md
 
 ## Motivation
 The project was designed in a way to practice our programming skills on Android in terms of Android communication with a running server. The Android App itself was neither attempting to be commercial nor to be attractive to the Android market. 
