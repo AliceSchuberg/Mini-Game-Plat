@@ -1,8 +1,10 @@
 # Mini-Game-Plat
-CNIT 355 Project: A practise of Internet Communication between Android Apps and Server.
+CNIT 355 Project: A practice of Internet Communication between Android Apps and Server.
 
 ## WARNING
+
 Unfortunately, our team has yet not able to find a proper public server (such as AWS) to run our server. 
+
 Due to this reason, this project is currently only LAN enabled, which means you have to follow the steps below and manually configure the ip address and port number to fit in your network environment.
 
 ##
@@ -19,34 +21,43 @@ Due to this reason, this project is currently only LAN enabled, which means you 
 
 ### Run the Server
 
-1. Load project folder in NetBeans
+1. Load project folder in NetBeans (If NetBeans failed to install, please follow the steps in the end of this file to proceed)
 
-2. Run the entire project
+2. Locate SocketService.java in com/cnit355/minigameplatform
+
+3. Configure PORT_NUM in line 34 to the port number you want your server listen to
+
+4. Take note of your server's ip address (Tutorial: https://www.avg.com/en/signal/find-ip-address)
+
+5. Run the entire project.
 
 
 ### Run the Android Apps
 
 1. Load the entire Android Project folder into Android Studio, if failed, proceed to Step 1.1
 
-#### Step 1.1
+```
+Step 1.1
 
 1.1.1 Create a new Android project with empty activity 
 
 1.1.2 Delete the src folder of the project you just created
 
 1.1.3 copy and paste the src folder from step 1
+```
 
 ####
 
-2. locate SocketService.java in com/cnit355/minigameplatform, configure
+2. locate SocketService.java in com/cnit355/minigameplatform, configure IP and Port_NUM in line 32, 33 to the server you just ran
 
 3. Run the entire project on two seperate devices
 
-4. In order to test the functionality of the entire project, 
+4. You are free to explore the features of the platform!
 
 ```
-Username: Pete
-Password: hailpurdue
+Testing Account:
+Username: player         Username: player1
+Password: player         Password: player1
 ```
 
 
