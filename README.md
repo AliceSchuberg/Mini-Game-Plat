@@ -31,6 +31,11 @@ And for the purpose of preventing cheating, we also self-defined our own gaming 
 
 ### Android 
 
+#### Service for Socket Connection
+Since the app will jump between activities, each activity is unable to hold the consistent Internet connection throughout the entire App Life Cycle. Due to this reason, the Socket Connection is established on a service, named `SocketService`, which will continuously run until the app was killed.
+
+#### BroadcastReceiver for Service-Activity Communication
+All activities and service will register a BroadcastReceiver with a tag `Call****` once they have been called onCreated(). To communicate with each of them, the service will simply broadcast an intent with the proper tags. The activities will unRegister the BroadcastReceiver once onStop() is called.
 
 ## Prerequisites
 
@@ -153,3 +158,30 @@ Password: player         Password: player1
 * **Haowen Lei** 
 * **Steven Wang**
 * **Eric Malone** 
+
+## Additional Note: Run the Server on command line
+1. Open up GamePlat.zip which contains the server codes. 
+
+2. Extract all folders under `GamePlat/build/classes` folder including: `gameplat`, `games`, `operations` and put them into a single folder. Note: Each folder above should contain the classes files instead of the java files.
+
+3. Extract the `lib` folder inside `GamePlat` and put it in the same folder that was just created. This folder will contain the sqlite driver for the server.
+
+4. Final file structure should looks like
+```
+<NewFolder>
+    ├── gameplat
+    │      └── *.class                      # classes files 
+    ├── games
+    │      └── *.class                      # classes files                   
+    ├── operations
+    │      └── *.class                      # classes files 
+    └── gameplat
+           └── sqlite-jdbc-3.32.3.2.jar     # sqlite driver
+```
+5. On Windows cmd, navigate to the `<NewFolder>` that was just created. run the following command line
+```
+java -classpath ".;lib\*" gameplat.GamePlat
+```
+6. On Linux-based terminal, run the following command line
+```
+java -classpath ".:lib\*" gameplat.Game.Plat
