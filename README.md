@@ -162,7 +162,7 @@ Password: player         Password: player1
 ## Additional Note: Run the Server on command line
 1. Create a new folder.
 
-2. Open up Game Platform Server.zip which contains the server codes. 
+2. Open up `Game Platform Server.zip` which contains the server codes. 
 
 3. Extract all folders under `GamePlat/build/classes` folder including: `gameplat`, `games`, `operations` and put them into the new folder. Note: Each folder above should contain the classes files instead of the java files.
 
