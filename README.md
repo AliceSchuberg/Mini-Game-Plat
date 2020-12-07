@@ -7,13 +7,13 @@ Unfortunately, our team has yet not able to find a proper public server (such as
 
 Due to this reason, this project is currently only LAN enabled, which means you have to follow the steps below and manually configure the ip address and port number to fit in your network environment.
 
-##
+
 
 ## Prerequisites
 
 0. Internet connection are required!!!!
 
-1. NetBeans IDE 8.2 or newer
+1. NetBeans IDE 8.2 or newer (If NetBeans failed to install, please follow the steps in the end of this file to proceed)
 
 2. Android Studio 4.0.1 or newer
 
@@ -21,7 +21,7 @@ Due to this reason, this project is currently only LAN enabled, which means you 
 
 ### Run the Server
 
-1. Load project folder in NetBeans (If NetBeans failed to install, please follow the steps in the end of this file to proceed)
+1. Load project folder in NetBeans
 
 2. Locate SocketService.java in com/cnit355/minigameplatform
 
@@ -63,24 +63,29 @@ Password: player         Password: player1
 
 ## Program Behavior
 
-### Server Part
+### Server part
 
-1. When the program runs, it search for "users.txt" in same directory to load all users' info into HashMap.
+1. When the program runs, it attempts to locate users.db. If not found, it will create a new one.
 
-2. Program continues in a loop to accept client connection and put in a thread (Multi-Connection Enabled!)
+2. Program continues in a loop to accept client connection and put it in a thread.
 
 3. For each connection, the server communicates with client using Message object defined in the package.
 
-4. Based on the Message.requestType attribute, the server determine which action to perform (possible actions as followed)
+4. Based on the operations.OperationType object, the server determine which action to perform (possible actions as followed)
 
 ```
-0: login Authentication
-1: request for downloading
-2: request for uploading
-3: request for registering (note: only upon registering, the users' info would be written into "users.txt")
+1 -> sign-in /authentication
+2 -> sign-up
+3 -> create room
+4 -> find public room
+5 -> join /search room
+6 -> start game
+7 -> gaming
+8 -> result /exit room
+9 -> search (if room exists)
 ```
 
-5. IF the client request for 2/3, the server will prepare a new port and thread dedicated to transfer the file
+5. Upon accepting request 3, it will create a GameSession instance running on an individual thread.
 
 ### Client Part
 
