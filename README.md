@@ -160,13 +160,15 @@ Password: player         Password: player1
 * **Eric Malone** 
 
 ## Additional Note: Run the Server on command line
-1. Open up GamePlat.zip which contains the server codes. 
+1. Create a new folder.
 
-2. Extract all folders under `GamePlat/build/classes` folder including: `gameplat`, `games`, `operations` and put them into a single folder. Note: Each folder above should contain the classes files instead of the java files.
+2. Open up GamePlat.zip which contains the server codes. 
 
-3. Extract the `lib` folder inside `GamePlat` and put it in the same folder that was just created. This folder will contain the sqlite driver for the server.
+3. Extract all folders under `GamePlat/build/classes` folder including: `gameplat`, `games`, `operations` and put them into the new folder. Note: Each folder above should contain the classes files instead of the java files.
 
-4. Final file structure should looks like
+4. Extract the `lib` folder inside `GamePlat` and put it in the same folder that was just created. This folder will contain the sqlite driver for the server.
+
+5. Final file structure should looks like:
 ```
 <NewFolder>
     ├── gameplat
