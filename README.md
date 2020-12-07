@@ -3,11 +3,9 @@ CNIT 355 Project: A practice of Internet Communication between Android Apps and 
 
 ## WARNING
 
-Unfortunately, our team has yet not able to find a proper public server (such as AWS) to run our server. 
+Unfortunately, our team has yet not been able to find a proper public server (such as AWS) to run our server. 
 
 Due to this reason, this project is currently only LAN enabled, which means you have to follow the steps below and manually configure the ip address and port number to fit in your network environment.
-
-
 
 ## Prerequisites
 
@@ -52,10 +50,10 @@ Step 1.1
 
 3. Run the entire project on two seperate devices
 
-4. You are free to explore the features of the platform!
+4. You are free to explore the features of the platform! (feel free to use the below accounts, both have been registered in server)
 
 ```
-Testing Account:
+Account for testing purpose:
 Username: player         Username: player1
 Password: player         Password: player1
 ```
@@ -67,12 +65,11 @@ Password: player         Password: player1
 
 1. When the program runs, it attempts to locate users.db. If not found, it will create a new one.
 
-2. Program continues in a loop to accept client connection and put it in a thread.
+2. Program continues in a loop to accept Android client connection and put it in a thread.
 
-3. For each connection, the server communicates with client using Message object defined in the package.
+3. For each connection, the server communicates with Android client using different objects defined in the package `games` and `operations`.
 
-4. Based on the operations.OperationType object, the server determine which action to perform (possible actions as followed)
-
+4. Based on the `operations.OperationType` object, the server determine which action to perform (possible actions as followed)
 ```
 1 -> sign-in /authentication
 2 -> sign-up
@@ -84,16 +81,47 @@ Password: player         Password: player1
 8 -> result /exit room
 9 -> search (if room exists)
 ```
-
 5. Upon accepting request 3, it will create a GameSession instance running on an individual thread.
+
+6. GameSession will continue to receive inputs / game data from Android client
+
+7. Once all inputs are recorded, the server will proceed to calculate the final winners, and flush out the winner list (String[]) to everyone in the game room
 
 ### Client Part
 
-1. When the program runs, it displays a dialog for login authentication
+1. When the Android App runs, it will ask for sign-in credentials to authenticate. Or the player can choose to sign up for a new account.
 
-2. When authen is successful, the client displays the main GUI with a list of available file on Cloud Drive & WL weather
+2. Once either Sign-In or Sign-Up is successful, the app will prompt to main menu.
 
-3. User can choose to upload or download files from server.
+3. The player can choose `create a new room`, `find a public room`, `search and join a room`.
+
+4. Either way, the player will be sent to WaitRoom in which the player must wait for another player to join. On the WaitRoom activity, the user will be able to see and share the `roomID` to others.
+
+5. Other players may now find the room that was just created on `find a public room`, or `search and join a room` with the shared room ID.
+
+6. On the waitroom, all players must press `PREPARE` in order to proceed to next phase: Gaming.
+
+7. On the actual gaming activity, depends on which game the player is in:
+
+#### Paper Rock Scissor
+1. The server will take inputs from each player. 
+
+2. Once both players have entered their data, it will trigger the server to compare them to get the results. 
+
+3. The server will send back the results to both players.
+
+4. The players will see a dialog showing the result, the players can choose to `re-play` again or `return to main menu`.
+
+#### Dice Roller
+1. Ther server takes requests from each player.
+
+2. The server then calculates a random number (1<=x<=6) for the player just requested. 
+
+3. The server then flushes out the current result of all players (could be null since some may not have requested) to each player.
+
+4. The server will calculate and obtain winners-list whose have the highest scores, and flushes out the results again.
+
+5. Once the game is over, the app will show the results and let the player either `re-play` again or `return to main menu`.
 
 ## Authors
 
