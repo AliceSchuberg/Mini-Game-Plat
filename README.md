@@ -171,13 +171,13 @@ Password: player         Password: player1
 5. Final file structure should looks like:
 ```
 <NewFolder>
-    ├── gameplat
+    ├── gameplat        #folder
     │      └── *.class                      # classes files 
-    ├── games
+    ├── games           #folder
     │      └── *.class                      # classes files                   
-    ├── operations
+    ├── operations      #folder
     │      └── *.class                      # classes files 
-    └── gameplat
+    └── lib             #folder
            └── sqlite-jdbc-3.32.3.2.jar     # sqlite driver
 ```
 5. On Windows cmd, navigate to the `<NewFolder>` that was just created. run the following command line
